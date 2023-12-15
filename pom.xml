@@ -14,11 +14,11 @@
     <packaging>jar</packaging>
 
     <properties>
-        <java.source.version>21</java.source.version>
-        <java.target.version>21</java.target.version>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.encoding>UTF-8</java.encoding>
         <resource.delimiter>@</resource.delimiter>
-        <spring.boot.version>3.1.5</spring.boot.version>
         <curator.version>4.0.1</curator.version>
     </properties>
 
@@ -26,7 +26,6 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>2022.0.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.csp</groupId>
@@ -216,11 +215,7 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
-                    <compilerVersion>21</compilerVersion>
                     <encoding>UTF-8</encoding>
-<!--                    <compilerArgs>-->
-<!--                        <arg>-parameters</arg>-->
-<!--                    </compilerArgs>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -228,10 +223,7 @@
                 <artifactId>native-maven-plugin</artifactId>
                 <configuration>
                     <buildArgs>
-                        <!--                        <buildArg>&#45;&#45;gc=G1</buildArg>-->
-                        <!--                        <buildArg>-O3</buildArg>-->
                         <buildArg>--color=always</buildArg>
-                        <!--                        <buildArg>&#45;&#45;target=linux-amd64</buildArg>-->
                         <buildArg>--verbose</buildArg>
                     </buildArgs>
                 </configuration>

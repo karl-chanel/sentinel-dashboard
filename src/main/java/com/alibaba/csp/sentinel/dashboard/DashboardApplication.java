@@ -36,17 +36,14 @@ import java.util.concurrent.Executors;
  */
 @SpringBootApplication
 public class DashboardApplication {
-
     public static void main(String[] args) {
         triggerSentinelInit();
         ConfigurableApplicationContext context = SpringApplication.run(DashboardApplication.class, args);
-//        Object o = context.getBean("sentinelFilter");
-//        System.out.println(o);
     }
-//    @Bean
-//    public TomcatProtocolHandlerCustomizer<ProtocolHandler> tomcatProtocolHandlerCustomizer() {
-//        return protocolHandler -> protocolHandler.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
-//    }
+    @Bean
+    public TomcatProtocolHandlerCustomizer<ProtocolHandler> tomcatProtocolHandlerCustomizer() {
+        return protocolHandler -> protocolHandler.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+    }
 
     private static void triggerSentinelInit() {
         new Thread(() -> InitExecutor.doInit()).start();
